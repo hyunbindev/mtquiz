@@ -9,15 +9,17 @@ class RoomManager {
         const roomCode = v4();
         const room = new Room(roomCode, socket.id);
         this.rooms.set(roomCode, room);
-
+        socket.join(roomCode);
         return roomCode;
     }
+    
     //게임 시작
     startGame(socket, roomCode){
         const room = this.rooms.get(roomCode);
         if(room && room.hostSocketId === socket.id){
             room.startGame();
         }
+        //방상태 전파
         socket.to(roomCode)
             .emit("game-started",
                 {
