@@ -1,0 +1,32 @@
+#page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#qr_container{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-right: 5rem;
+}
+#user_list{
+    width: 20rem;
+    border: 1px solid var(--foreground);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    gap: 1rem;
+}
+#start{
+    position:absolute;
+    bottom:10rem;
+    font-size: 3rem;
+    border-radius: 5px;
+    padding: 1rem;
+    border:none;
+    background-color: rgb(57, 16, 95);
+    color:white;
+    cursor: pointer;
+}

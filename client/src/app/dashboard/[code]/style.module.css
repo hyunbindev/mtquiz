@@ -1,0 +1,7 @@
+#score{
+    padding-top: 5rem;
+    justify-content: space-around;
+    display: flex;
+    font-size: 5rem;
+    color: white;
+}
