@@ -22,5 +22,9 @@ export default function useCreateRoom(){
         
     }, [ready]);
 
+    useEffect(()=>{
+        console.log("room code:", `${process.env.NEXT_PUBLIC_API_URL}/room/${roomCode}`);
+    },[roomCode])
+
     return { roomCode };
 }
