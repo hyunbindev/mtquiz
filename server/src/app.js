@@ -1,21 +1,27 @@
 // src/app.js
 import express from "express";
 import cors from "cors";
-
+import authRouter from '#api/router/auth';
+import {sessionMiddleware} from '#loader/session';
 const app = express();
 
+const corsOption = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}
+
 // 미들웨어
-app.use(cors());
+app.use(cors(corsOption));
 app.use(express.json());
+app.use(sessionMiddleware);
+
+app.use('/api/auth',authRouter);
 
 // 테스트용 API
 app.get("/", (req, res) => {
   res.send("MT Quiz API Server Running");
 });
 
-// 방 존재 확인 같은 API도 여기서
-app.get("/health", (req, res) => {
-  res.json({ status: "ok" });
-});
-
-export default app;
+export default app;  

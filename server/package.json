@@ -1,10 +1,15 @@
 {
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "connect-redis": "^9.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "express-session": "^1.18.2",
     "socket.io": "^4.8.1",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
@@ -13,5 +18,8 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"
   },
-  "type": "module"
+  "type": "module",
+  "imports": {
+    "#*": "./src/*.js"
+  }
 }
