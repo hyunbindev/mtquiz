@@ -10,6 +10,10 @@ export const loginPlayer = async(req,res)=>{
         }
         const session = await authService.loginPlayer(nickName);
         req.session.user = session;
+        req.session.save((err)=>{
+            if(err) throw err;
+            return res.status(200).end();
+        })
         return res.status(200).end();
     }catch(e){
         logger.error(`fail to player session issue: ${e}`);

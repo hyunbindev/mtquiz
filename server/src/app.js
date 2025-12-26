@@ -24,4 +24,4 @@ app.get("/", (req, res) => {
   res.send("MT Quiz API Server Running");
 });
 
-export default app;  
+export default app;

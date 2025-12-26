@@ -1,6 +1,7 @@
 "use client"
 import { useState ,useEffect } from "react";
 import useHostSocket from "./useHostSocket";
+import axios from 'axios';
 
 export default function useCreateRoom(){
     const[roomCode, setRoomCode]=useState(null);
@@ -11,7 +12,7 @@ export default function useCreateRoom(){
     useEffect(()=>{
         //웹소켓 null 방어로직 
         if(!ready) return;
-        
+
         //방 코드 수신
         ws.current.on("room-code", (code)=>{
             setRoomCode(code);
