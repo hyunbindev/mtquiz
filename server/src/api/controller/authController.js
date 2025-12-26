@@ -3,6 +3,7 @@ import authService from '#service/AuthService'
 export const loginPlayer = async(req,res)=>{
     try{
         const { nickName } = req.body;
+        logger.debug("nickname");
         if(!nickName || nickName.trim().length < 1){
             return res.status(400).json({
                 message: "이름을 입력해 주세요.",
